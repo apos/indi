@@ -53,6 +53,7 @@ install(TARGETS indi_lx200_TeenAstro RUNTIME DESTINATION bin)
 
 # ########## LX200 Generic ###########
 add_executable(indi_lx200generic
+    lx200_pifinder.cpp
     lx200driver.cpp
     lx200autostar.cpp
     lx200_16.cpp

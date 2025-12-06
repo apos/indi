@@ -28,7 +28,7 @@ Updated driver to use INDI::Telescope (JM)
 #endif
 
 #include "lx200generic.h"
-
+#include "lx200_pifinder.h"
 #include "lx200_10micron.h"
 #include "lx200_16.h"
 #include "lx200_OnStep.h"
@@ -144,6 +144,11 @@ static class Loader
             {
                 IDLog("initializing for 10Micron mount...\n");
                 telescope.reset(new LX200_10MICRON());
+            }
+            else if (strstr(__progname, "indi_pifinder_lx200"))
+            {
+                IDLog("initializing for PiFinder mount...\n");
+                telescope.reset(new LX200_PIFINDER());
             }
             else if (strstr(__progname, "indi_eq500x"))
             {
